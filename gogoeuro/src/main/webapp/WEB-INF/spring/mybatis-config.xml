@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+	
+<configuration>
+<!--   카멜 표기법 ex) User_Id = userId과 같은 카멜 형식으로 바꿔줌. -->
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+
+	<!-- xml 파일의 resultType에 사용하기 위한 경로를 쉽게 정의 -->
+	<typeAliases>
+		<typeAlias alias="LOGIN" type="co.kr.gogoeuro.dao.LOGIN"/>
+		<typeAlias alias="RESULT" type="co.kr.gogoeuro.dao.RESULT"/>
+		<typeAlias alias="JOIN" type="co.kr.gogoeuro.dao.JOIN"/>
+	</typeAliases>
+	
+</configuration>

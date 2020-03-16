@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace ="co.kr.gogoeuro.mapper.UserMapper">
+	<select id="Login" parameterType = "String" resultType="LOGIN">
+		SELECT 
+			USER_ID,
+			USER_PASSWD,
+			USER_IP
+		FROM
+			TB_USERS
+		WHERE 
+			USER_ID = #{id,jdbcType=VARCHAR}
+	</select>
+	
+	<update id="LoginInfoUpdate" parameterType = "java.util.HashMap">
+		UPDATE
+			TB_USERS
+		SET
+			USER_IP = #{ip,jdbcType=VARCHAR}
+		WHERE
+			USER_ID = #{id,jdbcType=VARCHAR} 
+	</update>
+	
+	<select id="ipCheck" parameterType="String" resultType="LOGIN">
+		SELECT
+			USER_ID,
+			USER_PASSWD,
+			USER_IP
+		FROM
+			TB_USERS
+		WHERE
+			USER_IP = #{ip,jdbcType=VARCHAR}
+	</select>
+
+	<insert id="Join" parameterType="JOIN">
+		INSERT INTO
+			TB_USERS(
+				USER_ID,
+				USER_PASSWD,
+				USER_IP,
+				USER_EMAIL,
+				USER_NICKNAME,
+				USER_PHONE
+			)
+		VALUES(
+			#{id},
+			#{passwd},
+			#{ip},
+			#{email},
+			#{nickname},
+			#{phone}
+		)
+	</insert>
+</mapper>
